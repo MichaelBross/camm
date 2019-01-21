@@ -1,0 +1,98 @@
+﻿@model Application.Models.WorkOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AllWorkOrders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WoNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WoNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerPO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssemblyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssemblyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityToBuild)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityToBuild)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeStamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WoStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WoStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesOrderLineItemNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesOrderLineItemNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WoNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
