@@ -23,7 +23,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public JsonResult Search(string searchstring)
         {
-            var searchResults = WorkOrders.Find(searchstring).ToList();
+            var searchResults = WorkOrdersRepo.Find(searchstring).ToList();
             return Json(searchResults);
         }
 
@@ -38,10 +38,10 @@ namespace WebApplication2.Controllers
             string sortDirection = Request["order[0][dir]"];
 
             // Total record count
-            int totalrows = WorkOrders.GetAll().Count();
+            int totalrows = WorkOrdersRepo.GetAll().Count();
 
             // Search
-            var searchResults = WorkOrders.Find(searchValue);
+            var searchResults = WorkOrdersRepo.Find(searchValue);
             int totalrowsafterfiltering = searchResults.Count();
 
             // Sort
@@ -64,7 +64,7 @@ namespace WebApplication2.Controllers
                 CopyPropertyValues.CopyPropertiesTo<WorkOrderDetail, WorkOrder>(detail, workorder);
                 try
                 {
-                    WorkOrder retrieved = WorkOrders.Add(workorder);
+                    WorkOrder retrieved = WorkOrdersRepo.Add(workorder);
                     return Json(new { success = true, model = retrieved });
                 }
                 catch (Exception ex)
@@ -87,7 +87,7 @@ namespace WebApplication2.Controllers
             {
                 WorkOrder workorder = new WorkOrder();
                 CopyPropertyValues.CopyPropertiesTo<WorkOrderDetail, WorkOrder>(detail, workorder);
-                WorkOrder updated = WorkOrders.Update(workorder);
+                WorkOrder updated = WorkOrdersRepo.Update(workorder);
                 return Json(new { success = true, model = updated });
             }
 
@@ -106,7 +106,7 @@ namespace WebApplication2.Controllers
 
             try
             {
-                var result = WorkOrders.Remove(detail.WoNumber);
+                var result = WorkOrdersRepo.Remove(detail.WoNumber);
                 if (result == 1)
                 {
                     return Json(new { success = true });

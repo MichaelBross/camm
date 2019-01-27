@@ -8,7 +8,7 @@ using Application.Models;
 
 namespace Repository
 {
-    public class WorkOrders
+    public class WorkOrdersRepo
     {
         public static WorkOrder Add(WorkOrder workOrder)
         {
