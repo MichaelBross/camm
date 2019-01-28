@@ -360,6 +360,10 @@
             }
 
             vm.loadDetails = function (data) {
+                if (data === undefined) {
+                    vm.clearModel();
+                    return;
+                }
                 vm.WorkOrder.WoNumber(data["WoNumber"]);
                 vm.WorkOrder.Customer(data["Customer"]);
                 vm.WorkOrder.CustomerPO(data["CustomerPO"]);
