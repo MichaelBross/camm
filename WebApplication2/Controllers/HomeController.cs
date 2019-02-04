@@ -11,8 +11,6 @@ namespace WebApplication2.Controllers
     {
         public ActionResult Index()
         {
-            MFG_TablesContext DC = new MFG_TablesContext();
-            List<WorkOrder> allWorkOrders = DC.WorkOrders.ToList();
             return View();
         }
 
