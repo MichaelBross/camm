@@ -22,9 +22,9 @@
     // The SQL server name or IP
     string sqlServer = "DESKTOP-NOAIC46";
     // The SQL username
-    string sqlLogin = "mbross";
+    string sqlLogin = "";
     // The SQL password
-    string sqlPassword = "Design62";
+    string sqlPassword = "";
     // The SQL database to generate the POCOs for
     string sqlDatabase = "MFG_tables";
     // The namespace to apply to the generated classes
