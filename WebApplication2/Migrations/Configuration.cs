@@ -5,14 +5,14 @@ namespace WebApplication2.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Application.Models.CammContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Application.Models.MFG_TablesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Application.Models.CammContext context)
+        protected override void Seed(Application.Models.MFG_TablesContext context)
         {
             //  This method will be called after migrating to the latest version.
 
