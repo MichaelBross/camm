@@ -12,8 +12,7 @@ namespace WebApplication2
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        {
-            //Database.SetInitializer<DataLayer.Models.MFG_TablesContext>(null);
+        {           
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,0 +1,43 @@
+﻿using System.Data.Entity;
+
+namespace Application.Models
+{
+    public class CammContext: DbContext
+    {
+        public DbSet<BOM> BOM { get; set; }
+        public DbSet<Configuration> Configuration { get; set; }
+        public DbSet<Connector> Connector { get; set; }
+        public DbSet<ConnectorAdaptor> ConnectorAdaptor { get; set; }
+        public DbSet<ConnectorDocument> ConnectorDocument { get; set; }
+        public DbSet<ConnectorTool> ConnectorTool { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<ContactDocument> ContactDocument { get; set; }
+        public DbSet<ContactTool> ContactTool { get; set; }
+        public DbSet<Document> Document { get; set; }
+        public DbSet<DocumentType> DocumentType { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<File> File { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<ItemDocument> ItemDocument { get; set; }
+        public DbSet<PriceBreakQuantityStandard> PriceBreakQuantityStandard { get; set; }
+        public DbSet<Proposal> Proposal { get; set; }
+        public DbSet<ProposalPrice> ProposalPrice { get; set; }
+        public DbSet<PulledPrice> PulledPrice { get; set; }
+        public DbSet<PurchaseRequest> PurchaseRequest { get; set; }
+        public DbSet<RF_CableTest> RF_CableTest { get; set; }
+        public DbSet<RF_Requirement> RF_Requirement { get; set; }
+        public DbSet<Scrap> Scrap { get; set; }
+        public DbSet<TestCable> TestCable { get; set; }
+        public DbSet<TimeEntry> TimeEntry { get; set; }
+        public DbSet<Tool> Tool { get; set; }
+        public DbSet<ToolDocument> ToolDocument { get; set; }
+        public DbSet<Vendor> Vendor { get; set; }
+        public DbSet<VendorQuote> VendorQuote { get; set; }
+        public DbSet<VendorQuoteDetail> VendorQuoteDetail { get; set; }
+        public DbSet<VNA_State> VNA_State { get; set; }
+        public DbSet<Wire> Wire { get; set; }
+        public DbSet<WorkOrder> WorkOrder { get; set; }
+        public DbSet<WorkOrderStatus> WorkOrderStatus { get; set; }
+    }
+
+}

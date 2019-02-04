@@ -22,7 +22,7 @@ foreach(FileInfo fileIn in Files)
 	var name = fileIn.Name;
 	name = name.Substring(0, name.IndexOf("."));
 #>
-        public DbSet<<#=name#>s> <#=name#> { get; set; }
+        public DbSet<<#=name#>> <#=name#> { get; set; }
 <#
 }
 #>

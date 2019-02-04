@@ -13,7 +13,7 @@ namespace Repository
         public static WorkOrder Add(WorkOrder workOrder)
         {
 
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             var keyViolation = context.WorkOrders.Find(workOrder.WoNumber);
             if(keyViolation != null)
             {
@@ -43,21 +43,21 @@ namespace Repository
 
         public static WorkOrder Get(string WoNumber)
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             var WO = context.WorkOrders.Find(WoNumber);
             return WO;
         }
 
         public static IEnumerable<WorkOrder> GetAll()
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             var WO = context.WorkOrders.AsEnumerable();
             return WO;
         }
 
         public static IEnumerable<WorkOrder> Find(WorkOrder workOrder)
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             var query = context.WorkOrders.AsQueryable();
             
             if(workOrder.AssemblyNumber != null)
@@ -100,7 +100,7 @@ namespace Repository
 
         public static IEnumerable<WorkOrder> Find(string searchString)
         {            
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             
             var query = context.WorkOrders.AsQueryable();
 
@@ -137,7 +137,7 @@ namespace Repository
 
         public static int Remove (string woNumber)
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             WorkOrder unwanted = context.WorkOrders.Find(woNumber);
 
             try
@@ -155,7 +155,7 @@ namespace Repository
 
         public static WorkOrder Update (WorkOrder workorder)
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
             WorkOrder targetItem = context.WorkOrders.Find(workorder.WoNumber);
             if(targetItem != null)
             {
@@ -178,24 +178,9 @@ namespace Repository
             return targetItem;                       
         }
 
-        //public static WorkOrder Create (WorkOrder workorder)
-        //{
-        //    var context = new MFG_TablesContext();
-        //    WorkOrder hasSameKeyValue = context.WorkOrders.Find(workorder.WoNumber);
-
-        //    if(hasSameKeyValue != null)
-        //    {
-        //        throw new Exception("WoNumber " + workorder.WoNumber + " already exists.");
-        //    }
-
-        //    WorkOrder newWorkOrder = context.WorkOrders.Add(workorder);
-        //    context.SaveChanges();
-        //    return newWorkOrder;
-        //}
-
         public static int RemoveMany(List<string> woNumbers)
         {
-            var context = new MFG_TablesContext();
+            var context = new CammContext();
 
             foreach(string woNumber in woNumbers)
             {

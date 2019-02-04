@@ -26,7 +26,7 @@
     // The SQL password
     string sqlPassword = "Design62";
     // The SQL database to generate the POCOs for
-    string sqlDatabase = "MFG_tables";
+    string sqlDatabase = "CAMMdb";
     // The namespace to apply to the generated classes
     string classNamespace = "Application.Models";
     // The destination folder for the generated classes, relative to this file's location.

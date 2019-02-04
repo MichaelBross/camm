@@ -159,11 +159,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModelsFromTables.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeTemplates\DataModels\MFG_TablesContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MFG_TablesContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Code\CopyPropertyValues.cs" />
     <Compile Include="Code\ViewModelAttributes.cs" />
     <Compile Include="Controllers\WorkOrdersController.cs" />
@@ -172,7 +167,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MFG_TablesContext.cs" />
+    <Compile Include="CammContext.cs" />
     <Compile Include="Migrations\201902042106234_InitialCreate.cs" />
     <Compile Include="Migrations\201902042106234_InitialCreate.Designer.cs">
       <DependentUpon>201902042106234_InitialCreate.cs</DependentUpon>
@@ -184,13 +179,18 @@
     <Compile Include="ViewModels\WorkOrderVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CodeTemplates\DataModels\CammContext2.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CammContext.tt</DependentUpon>
+    </Content>
     <Content Include="CodeTemplates\DataModels\DataModelsFromTables.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DataModelsFromTables.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeTemplates\DataModels\MFG_TablesContext.tt">
+    <Content Include="CodeTemplates\DataModels\CammContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MFG_TablesContext.cs</LastGenOutput>
+      <LastGenOutput>CammContext2.txt</LastGenOutput>
     </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
