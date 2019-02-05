@@ -26,10 +26,13 @@
 
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg">
+    <nav class="navbar navbar-expand-md fixed-top navbar-expand-lg">
         <div class="container-fluid navbar-dark bg-primary">
             @Html.ActionLink("CAMM", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <div class="collapse navbar-collapse" id="navbarToggler">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" id="Home" href="/">Home</a>
                     <a class="nav-item nav-link" id="WorkOrders" href="/WorkOrders/Index">Work Orders</a>
@@ -46,10 +49,10 @@
         </footer>
     </div>
 
-
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
         $(document).ready(function () {
+            // Highlight the navbar button with the id that matches the third string in the url
             var loc = window.location.href; // grabbing the url
             var str = loc.split("/")[3]; // splitting the url and taking the third string
             if (str.localeCompare("") == 0)
