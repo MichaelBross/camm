@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201902042106234_InitialCreate.Designer.cs">
       <DependentUpon>201902042106234_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902050017142_ChangeDueDateTypeToDateTimeOffset.cs" />
+    <Compile Include="Migrations\201902050017142_ChangeDueDateTypeToDateTimeOffset.Designer.cs">
+      <DependentUpon>201902050017142_ChangeDueDateTypeToDateTimeOffset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\WorkOrder.cs" />
     <Compile Include="Repository\WorkOrdersRepo.cs" />
@@ -550,6 +554,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902042106234_InitialCreate.resx">
       <DependentUpon>201902042106234_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902050017142_ChangeDueDateTypeToDateTimeOffset.resx">
+      <DependentUpon>201902050017142_ChangeDueDateTypeToDateTimeOffset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

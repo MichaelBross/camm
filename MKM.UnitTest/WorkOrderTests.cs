@@ -15,7 +15,7 @@ namespace MKM.UnitTest
                 AssemblyNumber = "TestAssyNo",
                 Customer = "TestCustomer",
                 CustomerPO = "TestCustomerPO",
-                DueDate = DateTime.Parse("1/21/2019"),
+                DueDate = DateTimeOffset.Parse("1/21/2019"),
                 QuantityToBuild = 123456,
                 SalesOrder = "TestSONo",
                 SalesOrderLineItemNo = "1",

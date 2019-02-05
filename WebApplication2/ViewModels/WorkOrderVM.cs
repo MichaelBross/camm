@@ -60,7 +60,7 @@ namespace Application.ViewModels
         public string SalesOrder { get; set; }
 
         [DisplayName("Due Date")]
-        public DateTime? DueDate { get; set; }
+        public DateTimeOffset? DueDate { get; set; }
 
         [Required(ErrorMessage = "Assembly Number is required.")]
         [DisplayName("Assembly #")]

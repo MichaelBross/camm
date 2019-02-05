@@ -6,10 +6,6 @@ using WebApplication2.Code;
 
 namespace Application.Models
 {
-    /// <summary>
-    /// Represents a WorkOrder.
-    /// NOTE: This class is generated from a T4 template - you should not modify it manually.
-    /// </summary>
     public class WorkOrder 
     {	
 		[Key]
@@ -18,7 +14,7 @@ namespace Application.Models
         public string Customer { get; set; }
         public string CustomerPO { get; set; }
         public string SalesOrder { get; set; }
-        public DateTime? DueDate { get; set; }
+        public DateTimeOffset? DueDate { get; set; }
         public string AssemblyNumber { get; set; }
         public int? QuantityToBuild { get; set; }
         [HideInListView]
