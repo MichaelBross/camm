@@ -196,13 +196,7 @@
                         { data: "SalesOrder", name: "SalesOrder", title: "Sales Order" },
                         {
                             data: "DueDate", name: "DueDate", title: "Due Date", render: function (d) {
-                                var dateInt = parseInt(d.substring(6, 19));
-                                var duedate = new Date(dateInt);
-                                var year = duedate.getUTCFullYear();
-                                var month = duedate.getUTCMonth() + 1;
-                                var date = duedate.getUTCDate();
-                                var formatduedate = month + "/" + date  + "/" + year;
-                                return formatduedate;
+                                return vm.formatduedate(d);
                             }
                         },
                         { data: "AssemblyNumber", name: "AssemblyNumber", title: "Assembly Number" },
@@ -230,6 +224,19 @@
             };
 
             vm.configureTable();
+
+            vm.formatduedate = function (d) {
+                if (d === null) {
+                    return "";
+                }
+                var dateInt = parseInt(d.substring(6, 19));
+                var duedate = new Date(dateInt);
+                var year = duedate.getUTCFullYear();
+                var month = duedate.getUTCMonth() + 1;
+                var date = duedate.getUTCDate();
+                var formatduedate = month + "/" + date + "/" + year;
+                return formatduedate;
+            }
 
             vm.add = function () {
                 vm.clearModel();
@@ -375,13 +382,7 @@
                 vm.WorkOrder.Customer(data["Customer"]);
                 vm.WorkOrder.CustomerPO(data["CustomerPO"]);
                 vm.WorkOrder.SalesOrder(data["SalesOrder"]);
-                var dateInt = parseInt(data["DueDate"].substring(6, 19));
-                var duedate = new Date(dateInt);
-                var year = duedate.getUTCFullYear();
-                var month = duedate.getUTCMonth() + 1;
-                var date = duedate.getUTCDate();
-                var formatduedate = month + "/" + date + "/" + year;
-                vm.WorkOrder.DueDate(formatduedate);
+                vm.WorkOrder.DueDate(vm.formatduedate(data["DueDate"]));
                 vm.WorkOrder.AssemblyNumber(data["AssemblyNumber"]);
                 vm.WorkOrder.QuantityToBuild(data["QuantityToBuild"]);
                 vm.WorkOrder.WoStatus(data["WoStatus"]);
