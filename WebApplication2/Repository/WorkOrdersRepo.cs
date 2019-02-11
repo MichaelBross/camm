@@ -5,12 +5,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Models;
+using CAMM.DataAccess.Interface; 
 
 namespace Repository
 {
-    public class WorkOrdersRepo
+    public class WorkOrdersRepo : IDataProvider<WorkOrder>
     {
-        public static WorkOrder Add(WorkOrder workOrder)
+        public WorkOrder Add(WorkOrder workOrder)
         {
 
             var context = new CammContext();
@@ -41,21 +42,21 @@ namespace Repository
             
         }
 
-        public static WorkOrder Get(string WoNumber)
+        public WorkOrder GetById(string WoNumber)
         {
             var context = new CammContext();
             var WO = context.WorkOrders.Find(WoNumber);
             return WO;
         }
 
-        public static IEnumerable<WorkOrder> GetAll()
+        public IEnumerable<WorkOrder> GetAll()
         {
             var context = new CammContext();
             var WO = context.WorkOrders.AsEnumerable();
             return WO;
         }
 
-        public static IEnumerable<WorkOrder> Find(WorkOrder workOrder)
+        public IEnumerable<WorkOrder> Find(WorkOrder workOrder)
         {
             var context = new CammContext();
             var query = context.WorkOrders.AsQueryable();
@@ -135,7 +136,7 @@ namespace Repository
             return query.AsEnumerable<WorkOrder>();
         }
 
-        public static int Remove (string woNumber)
+        public int Remove (string woNumber)
         {
             var context = new CammContext();
             WorkOrder unwanted = context.WorkOrders.Find(woNumber);
@@ -153,7 +154,7 @@ namespace Repository
             
         }
 
-        public static WorkOrder Update (WorkOrder workorder)
+        public WorkOrder Update (WorkOrder workorder)
         {
             var context = new CammContext();
             WorkOrder targetItem = context.WorkOrders.Find(workorder.WoNumber);
@@ -177,20 +178,20 @@ namespace Repository
             context.SaveChanges();
             return targetItem;                       
         }
-
-        public static int RemoveMany(List<string> woNumbers)
+               
+        public WorkOrder GetById(int id)
         {
-            var context = new CammContext();
-
-            foreach(string woNumber in woNumbers)
-            {
-                WorkOrder unwanted = context.WorkOrders.Find(woNumber);
-                context.WorkOrders.Remove(unwanted);
-            }
-
-            var result = context.SaveChanges();
-            return result;
+            throw new NotImplementedException();
         }
 
+        public int Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SubmitChanges()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,9 +31,10 @@ namespace MKM.UnitTest
         {
             // Arrange
             WorkOrder item = MakeTestWorkOrder();
+            var workOrdersRepo = new WorkOrdersRepo();
 
             // Act
-            var result = WorkOrdersRepo.Add(item);
+            var result = workOrdersRepo.Add(item);
 
             // Assert
             Assert.AreEqual(item, result);
@@ -45,9 +46,10 @@ namespace MKM.UnitTest
         {
             // Arrange
             WorkOrder item = MakeTestWorkOrder();
+            var workOrdersRepo = new WorkOrdersRepo();
 
             // Act
-            WorkOrder retrieved = WorkOrdersRepo.Get(item.WoNumber);            
+            WorkOrder retrieved = workOrdersRepo.GetById(item.WoNumber);            
 
             // Assert
             Assert.AreEqual(retrieved.AssemblyNumber, item.AssemblyNumber);
@@ -67,10 +69,11 @@ namespace MKM.UnitTest
             // Arrange
             WorkOrder item = MakeTestWorkOrder();
             item.AssemblyNumber = "EditTest";
+            var workOrdersRepo = new WorkOrdersRepo();
 
             // Act            
-            WorkOrdersRepo.Update(item);
-            WorkOrder retrieved = WorkOrdersRepo.Get(item.WoNumber);
+            workOrdersRepo.Update(item);
+            WorkOrder retrieved = workOrdersRepo.GetById(item.WoNumber);
 
             // Assert
             Assert.AreEqual(retrieved.AssemblyNumber, item.AssemblyNumber);
@@ -89,10 +92,10 @@ namespace MKM.UnitTest
         {
             // Arrange
             WorkOrder item = MakeTestWorkOrder();
-
+            var workOrdersRepo = new WorkOrdersRepo();
             // Act            
-            var result = WorkOrdersRepo.Remove(item.WoNumber);
-            WorkOrder retrieved = WorkOrdersRepo.Get(item.WoNumber);
+            var result = workOrdersRepo.Remove(item.WoNumber);
+            WorkOrder retrieved = workOrdersRepo.GetById(item.WoNumber);
 
             // Assert
             Assert.AreEqual(result, 1);

@@ -655,6 +655,15 @@
       <DependentUpon>201902050017142_ChangeDueDateTypeToDateTimeOffset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CAMM.DataAccess.Interface\CAMM.DataAccess.Interface.csproj">
+      <Project>{19e6ceca-b6cc-497a-a944-d85ab76c1ee7}</Project>
+      <Name>CAMM.DataAccess.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -13,7 +13,14 @@ using WebApplication2.Code;
 namespace WebApplication2.Controllers
 {
     public class WorkOrdersController : Controller
-    {        
+    {
+        private WorkOrdersRepo workOrdersRepo;
+
+        public WorkOrdersController()
+        {
+            this.workOrdersRepo = new WorkOrdersRepo();
+        }
+
         // GET: WorkOrders
         public ActionResult Index(string searchString)
         {
@@ -36,9 +43,9 @@ namespace WebApplication2.Controllers
             string searchValue = Request["search[value]"];
             string sortColumnName = Request["columns[" + Request["order[0][column]"] + "][name]"];
             string sortDirection = Request["order[0][dir]"];
-
+           
             // Total record count
-            int totalrows = WorkOrdersRepo.GetAll().Count();
+            int totalrows = workOrdersRepo.GetAll().Count();
 
             // Search
             var searchResults = WorkOrdersRepo.Find(searchValue);
@@ -63,8 +70,8 @@ namespace WebApplication2.Controllers
                 WorkOrder workorder = new WorkOrder();
                 CopyPropertyValues.CopyPropertiesTo<WorkOrderDetail, WorkOrder>(detail, workorder);
                 try
-                {
-                    WorkOrder retrieved = WorkOrdersRepo.Add(workorder);
+                {                    
+                    WorkOrder retrieved = workOrdersRepo.Add(workorder);
                     return Json(new { success = true, model = retrieved });
                 }
                 catch (Exception ex)
@@ -84,10 +91,10 @@ namespace WebApplication2.Controllers
         public JsonResult Update([Bind(Include = "WoNumber,Customer,CustomerPO,SalesOrder,DueDate,AssemblyNumber,QuantityToBuild,WoStatus,SalesOrderLineItemNo")] WorkOrderDetail detail)
         {
             if (ModelState.IsValid)
-            {
+            {                
                 WorkOrder workorder = new WorkOrder();
                 CopyPropertyValues.CopyPropertiesTo<WorkOrderDetail, WorkOrder>(detail, workorder);
-                WorkOrder updated = WorkOrdersRepo.Update(workorder);
+                WorkOrder updated = workOrdersRepo.Update(workorder);
                 return Json(new { success = true, model = updated });
             }
 
@@ -105,8 +112,8 @@ namespace WebApplication2.Controllers
             }
 
             try
-            {
-                var result = WorkOrdersRepo.Remove(detail.WoNumber);
+            {                
+                var result = workOrdersRepo.Remove(detail.WoNumber);
                 if (result == 1)
                 {
                     return Json(new { success = true });
